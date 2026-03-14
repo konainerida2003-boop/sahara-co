@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Lora', sans-serif;
+  --font-display: 'Playfair Display', serif;
+
+  /* Luxury Light Theme - Beige, Cream, Gold, Charcoal */
+  --background: 40 33% 98%; /* Cream */
+  --foreground: 0 0% 10%; /* Very dark charcoal */
+  
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  
+  --primary: 43 45% 55%; /* Elegant Gold */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 40 15% 90%; /* Deeper Beige */
+  --secondary-foreground: 0 0% 15%;
+  
+  --muted: 40 15% 90%;
+  --muted-foreground: 0 0% 40%;
+  
+  --accent: 43 45% 55%;
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 40 15% 85%;
+  --input: 40 15% 85%;
+  --ring: 43 45% 55%;
+
+  --radius: 0rem; /* Sharp edges for minimal luxury */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-normal tracking-tight;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-gold {
+    color: hsl(var(--primary));
+  }
+  .bg-gold {
+    background-color: hsl(var(--primary));
+  }
+}
+
+/* Custom scrollbar for luxury feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Subtle image overlay gradient */
+.image-vignette {
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+}
+/* Slow rotating circle animation */
+.animate-spin-slow {
+  animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
